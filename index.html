@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notes — Приложение заметок</title>
+  
+  <!-- Стили -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header class="header">
+        <img class="logo" src="images/logo.png" alt="Notes">
+      <div class="head-wrapper">
+        <img src="/images/icons/notes.png" alt="icon" class="notesIcon" width="24">
+        <p><span class="countNotes">0</span></p>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="container-form">
+      <!-- ФОРМА ДОБАВЛЕНИЯ -->
+      <form class="note-form" name="notes">
+        <div>
+            <label class="title">Заголовок заметки 
+              <input class= "text" type="text" placeholder="Напишите название заметки...">
+            </label>
+        </div>
+          
+        <div class="enterNote">
+          <div class="note-inputs">
+            <label class="title-text">Описание новой заметки</label>
+            <textarea class="textarea" placeholder="Напишите описание новой заметки..."></textarea>
+          </div>
+          
+          <div class="colors-btn">
+            <fieldset class="fieldset">
+              <legend class="label">Выберите цвет заметки</legend>
+              <ul class="radio-list">
+                <li>
+                  <input checked class="radio" type="radio" name="color" value="yellow" aria-label="yellow" />
+                </li>
+                <li>
+                  <input class="radio" type="radio" name="color" value="red" aria-label="red" />
+                </li>
+                <li>
+                  <input class="radio" type="radio" name="color" value="green" aria-label="green" />
+                </li>
+                <li>
+                  <input class="radio" type="radio" name="color" value="blue" aria-label="blue" />
+                </li>
+                <li>
+                  <input class="radio" type="radio" name="color" value="purple" aria-label="purple" />
+                </li>
+              </ul>
+            </fieldset>
+            <button type="submit" class="btn">+ Добавить заметку</button>
+          </div>
+        </div>
+      </form>
+
+  
+      <section class="view-content">
+        <div class="checkbox">
+          <btn type="submit"><img class="checkbox-img" src="images/icons/checkboxInactive.png"></btn>
+          <p class="checkbox-text">Показать только избранные заметки</p>
+        </div>
+        <ul class="notes-list">
+        </ul>
+        <div class="messege-container">
+          <div class="done"></div>
+          <div class="error"></div>
+          <div class="warning"></div>
+        </div>
+        <p class="empty-list"></p>
+      </section>
+    </main>
+  <!-- SCRIPT -->
+  <script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+

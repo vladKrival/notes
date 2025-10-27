@@ -1,0 +1,389 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #fafafc;
+  height: 720px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  box-sizing: border-box;
+}
+.header {
+  max-width: 1280px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0;
+  box-shadow: 0 1px 3px 0 rgba(11, 12, 13, 0.16), 0 0 1px 0 rgba(11, 12, 13, 0.24);
+  background: #fff;
+}
+.logo {
+  margin: 0 64px;
+  width: 110px; 
+  height: 25px;
+  align-self: center;
+}
+.container-form {
+margin: 0 64px;
+max-width: 1152px;
+}
+.notesIcon {
+  background-image: #457CDC;
+}
+.head-wrapper {
+margin-right: 64px; 
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.note-form {
+margin-top: 24px;
+border-radius: 4px;
+padding: 12px;
+max-width: 1152px;
+height: 228px;
+display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-direction: column;
+gap: 12px;
+box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08), 0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+background: #fff;
+}
+
+.title , .title-text , .label{
+margin: 0;
+font-weight: 400;
+font-size: 12px;
+line-height: 2;
+color: #919191;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.text {
+border: 1px solid #e8e8e8;
+border-radius: 10px;
+padding: 6px 12px;
+width: 344px;
+height: 36px;
+}
+
+.enterNote {
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+flex-direction: row;
+gap: 24px;
+max-width: 1104px;
+height: 108px;
+
+}
+.note-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+font-weight: 400;
+font-size: 14px;
+line-height: 1.71429;
+color: #919191;
+border: 1px solid #e8e8e8;
+border-radius: 10px;
+padding: 6px 12px;
+width: 848px;
+height: 84px;
+}
+
+.fieldset{
+border: none;
+padding-left: 0;
+}
+
+.radio-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 8px;
+  padding: 0 ;
+  margin: 0;
+}
+
+.btn {
+all: unset;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 500;
+font-size: 16px;
+color: #fff;
+border-radius: 10px;
+padding: 6px 24px;
+max-width: 200px;
+height: 36px; 
+background: #457cdc;
+cursor: pointer;
+margin: 0;
+}
+
+.btn:hover {
+  background: #336ad1;
+}
+
+.radio {
+  appearance: none;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease, border 0.3s ease;
+}
+
+.radio:focus, .radio:active {
+  outline: none;
+  border: none;
+  box-shadow:
+  0 0 0 2px #fff,
+  0 0 0 4px #457cdc;
+}
+
+.radio[value="red"] {
+  background-color: #F37D7D;
+}
+
+.radio[value="green"] {
+  background-color: #C2F37D;
+}
+
+.radio[value="blue"] {
+  background-color: #7DE1F3;
+}
+
+.radio[value="yellow"] {
+  background-color: #F3DB7D;
+}
+
+.radio[value="purple"] {
+  background-color: #E77DF3;
+}
+
+.radio:checked {
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 0 3px white, /* Внутренняя обводка для создания промежутка */
+  0 0 0 4.5px #007BFF; /* Внешняя обводка */
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  margin-top: 24px;
+  gap: 8px;
+}
+
+.checkbox-text {
+font-weight: 400;
+font-size: 12px;
+line-height: 200%;
+color: #000;
+}
+
+.messege-container {
+  display: flex;
+  flex-direction: column;
+  align-self:flex-end;
+}
+
+/* ====== NOTES LIST ====== */
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+/* Каждая заметка */
+.note {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 260px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.note-actions {
+  
+}
+
+.note:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Заголовок заметки */
+.note h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+/* Текст заметки */
+.note p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Кнопки */
+.note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.note button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.note button:hover {
+  transform: scale(1.2);
+}
+
+/* ====== ПУСТОЙ СПИСОК ====== */
+.empty-list {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #888;
+}
+
+/* ====== СООБЩЕНИЯ ====== */
+.messege-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.message {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.4s forwards;
+  position: relative;
+}
+
+/* Анимация появления */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Типы сообщений */
+.message.info {
+  background-color: #457cdc;
+}
+
+.message.error {
+  background-color: #e74c3c;
+}
+
+/* ====== ::before / ::after — иконки сообщений ====== */
+.message.info::before {
+  content: "ℹ️";
+  margin-right: 8px;
+}
+
+.message.error::before {
+  content: "⚠️";
+  margin-right: 8px;
+}
+
+/* ====== ФИЛЬТР "ИЗБРАННОЕ" ====== */
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 24px;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.checkbox-img:hover {
+  transform: scale(1.1);
+}
+
+/* Активное состояние фильтра (замена иконки) */
+.checkbox-img.active {
+  background-image: url('images/icons/checkboxActive.png');
+  width: 20px;
+  height: 20px;
+  filter: hue-rotate(40deg) saturate(2);
+}
+
+/* ====== ДОПОЛНИТЕЛЬНОЕ: плавный hover для кнопки добавления ====== */
+.btn {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #336ad1;
+  transform: translateY(-2px);
+}
