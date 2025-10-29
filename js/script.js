@@ -25,7 +25,8 @@ const model = {
   toggleFavorite(id) {
     const note = this.notes.find((n) => n.id === id);
     if (note) {
-      note.isFavorite === !note.isFavorite;
+      note.isFavorite = !note.isFavorite;
+      console.log(this.notes)
     }
   },
 };
@@ -63,11 +64,10 @@ const view = {
 
       notes.forEach((note) => {
         const li = document.createElement('li');
+        const srcImg = note.isFavorite ? "/images/icons/heartActive.png" : "/images/icons/heartInactive.png"
         li.classList.add('note');
         li.dataset.id = note.id;
-        // li.style.backgroundColor = note.color;
-        li.style.padding = '16px';
-        li.style.borderRadius = '8px';
+        li.style.borderRadius = '10px';
         li.style.width = '370px';
         li.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
         li.style.display = 'flex';
@@ -76,16 +76,16 @@ const view = {
         li.style.marginBottom = '16px';
 
         li.innerHTML = `
-          <div class="note-header" style="display:flex; justify-content:space-between; align-items:center;">
-            <h3 style="margin:0; font-size:16px;  backgroundColor = ${note.color}">${note.title}</h3>
+          <div class="note-header" style="display:flex; justify-content:space-between; align-items:center; padding:10px; border-top-radius:10px 10px 0 0; background-color:${note.color}">
+            <h3 style="margin:0; font-size:16px;">${note.title}</h3>
             <div class="note-actions" style="display:flex; gap:8px;">
               <button class="favorite-note" title="Избранное" style="background:none; border:none; cursor:pointer; font-size:18px;">
-                ${note.isFavorite ? '⭐' : '☆'}
+                <img class="favorite-note" src=${srcImg}>
               </button>
-              <button class="delete-note" title="Удалить" style="background:none; border:none; cursor:pointer; font-size:18px;">🗑</button>
+              <button class="delete-note" title="Удалить" style="background:none; border:none; cursor:pointer; font-size:18px;"><img class="delete-note" src='/images/icons/trash.png' alt="Кнопка удаления"></img></button>
             </div>
           </div>
-          <p style="font-size:14px; color:#444; margin-top:8px;">${note.content}</p>
+          <p style="font-size:14px; color:#444;">${note.content}</p>
         `;
 
         notesList.appendChild(li);
@@ -134,8 +134,8 @@ return;
     });
 
         // фильтр избранных
-    favoriteFilter.addEventListener('click', () => {
-      const isFiltered = favoriteFilter.classList.toggleFavorite('active');
+    favoriteFilter.addEventListener('click', (e) => {
+      const isFiltered = e.target.checked;
       const notes = isFiltered ? model.getNotes().filter((n) => n.isFavorite) : model.getNotes();
       renderNotes(notes);
     });
@@ -145,6 +145,7 @@ return;
       const noteEl = e.target.closest('.note');
       if (!noteEl) return;
       const id = +noteEl.dataset.id;
+      console.log("click")
 
       if (e.target.classList.contains('delete-note')) {
         model.deleteNote(id);
@@ -154,11 +155,13 @@ return;
 
       if (e.target.classList.contains('favorite-note')) {
         model.toggleFavorite(id);
+
         const isFiltered = favoriteFilter.classList.contains('active');
         const notes = isFiltered
           ? model.getNotes().filter((n) => n.isFavorite)
           : model.getNotes();
         renderNotes(notes);
+        console.log("if favorite")
       }
     });
 
@@ -171,7 +174,6 @@ return;
   },
 };
 
-// =========================
 // CONTROLLER — логика взаимодействия
 
 const controller = {
